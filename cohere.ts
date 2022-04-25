@@ -26,9 +26,9 @@ interface CohereService {
     config: models.chooseBest
   ): Promise<models.cohereResponse<models.scores>>;
   extract(
-    model: string, 
+    model: string,
     config: models.extract
-    ): Promise<models.cohereResponse<models.extraction[]>>;
+  ): Promise<models.cohereResponse<models.extraction[]>>;
 }
 
 class Cohere implements CohereService {
@@ -117,7 +117,8 @@ class Cohere implements CohereService {
   }
 
   /**
-   * Classifies text as one of the given labels. Returns a confidence score for each label.
+   * Classifies text as one of the given labels. Returns a confidence score for each label.\
+   * See: https://docs.cohere.ai/classify-reference
    */
   public classify(
     model: string,
@@ -131,9 +132,14 @@ class Cohere implements CohereService {
   /**
    * Extract text from texts, with examples
    */
-  public extract(model: string, config: models.extract): Promise<models.cohereResponse<models.extraction[]>> {
-    return this.makeRequest(model, ENDPOINT.EXTRACT, config) as Promise<models.cohereResponse<models.extraction[]>>;
-  } 
+  public extract(
+    model: string,
+    config: models.extract
+  ): Promise<models.cohereResponse<models.extraction[]>> {
+    return this.makeRequest(model, ENDPOINT.EXTRACT, config) as Promise<
+      models.cohereResponse<models.extraction[]>
+    >;
+  }
 }
 const cohere = new Cohere();
 export = cohere;
