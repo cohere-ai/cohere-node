@@ -43,6 +43,10 @@ export interface generate {
    * text.
    */
   return_likelihoods?: 'GENERATION' | 'ALL' | 'NONE';
+  /** Language code (eg: "fr" for French) to specify the language of the generated text.
+   * Support for languages varies between models. By default, the language is set to English.
+   */
+  language?: string
 }
 
 export interface embed {

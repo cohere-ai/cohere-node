@@ -28,6 +28,7 @@ describe('The generate endpoint successfully completes', () => {
       prompt: "hello what is your name. £ symbols sometimes cause problems.",
       max_tokens: 20,
       temperature: 1,
+      language: "en",
       k: 5,
       p: 1,
     });
